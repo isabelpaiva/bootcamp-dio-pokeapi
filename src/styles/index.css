@@ -1,1 +1,123 @@
-/* Monte sua estilização aqui */
+:root{
+    --color-grey-1: #212529;
+    --color-grey-2: #343A40;
+    --color-grey-3: #464F57;
+    --font-1: 1.75rem;
+    --font-2: 1rem;
+    --font-3: 0.875rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    padding-top: 33px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.625rem;
+    min-height: 100vh;
+    background-color: var(--color-grey-1);
+    color: #fff;
+    padding: 3rem;
+    align-items: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.625rem;
+    width: 60%;
+    width: 40rem;
+    max-width: 100%;
+    margin: 0 auto;
+ 
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
+}
+
+h1 {
+    font-family: 1.5rem;
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    width: 100%;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    background-color: #343A40;
+    border-radius: .5rem;
+    padding-left: .5rem;
+}
+
+#loading {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #ADB5BD;
+}
+
+#searchBtn{
+ margin-left: 20px;
+   width:30px;
+   background-color: blue;
+   padding-left: 2px;
+   position: absolute;
+   bottom: 77%;
+   padding-left: 2px;
+   padding-right: 2px;
+   border-radius: 10px;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+}
+
+input{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    height: 40px;
+    width: 8rem;
+    border: none;
+    text-decoration: none;
+    border-radius: 1vh;
+    background-color: #212529;
+    outline: none;
+    border: 2px solid blue;
+}
+
+input:hover{
+    border: 2px solid rgb(18, 18, 199);
+}
+
+
+
+.hidden {
+    display: none;
+}
