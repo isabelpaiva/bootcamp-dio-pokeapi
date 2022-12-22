@@ -96,6 +96,11 @@ li {
    border-radius: 10px;
 }
 
+#searchBtn:hover{
+background-color: rgba(11, 22, 124, 0.938);
+border-radius: 14px;
+}
+
 header{
   display: flex;
   flex-direction: column;
