@@ -15,14 +15,20 @@ async function consomePokeAPI() {
       )
 
     // Independente da requisição ser um sucesso, ou um erro, removeremos o loading da tela
-    loading.classList.add('hidden')
+    // loading.classList.add('hidden')
 
     // Retorna esse valor convertido
     return pokemonsDaAPI
 }
 
+
+const carregando = document.querySelector('#loading')
+const searchInput = document.querySelector('input')
+ const searchBtn = document.querySelector('#searchBtn')
+
 //PESQUISA
 async function getPokemonByName(pokemonName){
+  
   const pokemon =  await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`, {
     method: 'GET',
     headers: {
@@ -32,42 +38,45 @@ async function getPokemonByName(pokemonName){
 
   .then(res => res.json())
   .then(res =>{
-  //  renderizaPokemons(res)
-   console.log(res)
    return res
- 
   })
-  // console.log(pokemon)
+  carregando.style.display = "none";
+
   return pokemon
 }
 
-function renderSearch(){
+  function renderSearch(pokemonName){
   const searchInput = document.querySelector('input')
   const searchBtn = document.querySelector('#searchBtn')
+  const pokemon = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
 
-   searchBtn.addEventListener('click', async () =>{
-      renderizaPesquisa(await getPokemonByName(searchInput.value))
+    searchBtn.addEventListener('click', async () =>{
+
+      if (searchInput.value == 0){
+        searchInput.innerHTML = ''
+         renderizaPokemons() 
+         
+         
+      } else{
+        renderizaPesquisa(await getPokemonByName(searchInput.value.toLowerCase().trim()))
+      } 
+
+      if (searchInput.value != pokemonName){
+       console.log('não existe')
+      }
   })
 }
 
- async function renderizaPesquisa(resposta){
+async function renderizaPesquisa(pokemon){
 
   const ulTag =  document.querySelector('ul')
-
   ulTag.innerHTML = ''
-
-  
-
   ulTag.insertAdjacentHTML( 'beforeend', `
   <li>
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${resposta.id}.png" alt=${resposta.name}>
-      <h3 class="nomePokemon">${resposta.name}</h3>
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt=${pokemon.name}>
+      <h3 class="nomePokemon">${pokemon.name}</h3>
   </li>
  `)
-
-
-//  console.log(resposta)
-
 }
 
 
